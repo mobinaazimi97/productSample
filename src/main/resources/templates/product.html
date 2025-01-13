@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Product</title>
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/css/all.css">
+    <script src="/static/assets/js/product.js"></script>
+
+</head>
+<body>
+<h1>Product</h1>
+<form action="/product" method="post">
+    <input type="text" name="name" placeholder="Name">
+    <input type="text" name="brand" placeholder="brand">
+    <input type="number" name="serialNumber" placeholder="serialNumber">
+    <input type="number" name="buyPrice" placeholder="buyPrice">
+    <input type="submit" value="save">
+
+</form>
+<h1 th:text="${productBrand}"></h1>
+
+<h1 th:if="${#lists.isEmpty(products)}">No Content!</h1>
+
+
+<!--<h3 th:text="${persons}">persons :</h3> b jaye in table mizarim-->
+<table th:if="${not #lists.isEmpty(products)}">
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Brand</th>
+        <th>SerialNumber</th>
+        <th>BuyPrice</th>
+        <th>Operation</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="product:${products}">
+        <td th:text="${product.id}"></td>
+        <td th:text="${product.name}"></td>
+        <td th:text="${product.brand}"></td>
+        <td th:text="${product.serialNumber}"></td>
+        <td th:text="${product.buyPrice}"></td>
+
+        <td>
+            <button>Edit</button>
+            <button>Remove</button>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<!--<script src="/assets/js/jquery-3.7.1.min.js"></script>-->
+<!--<script src="/assets/js/bootstrap.bundle.min.js"></script>-->
+<!--<script src="/assets/js/all.js"></script>-->
+<script src="/static/assets/js/product.js"></script>
+
+
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/assets/css/all.css">
+</head>
+<body>
+
+<form action="/product" method="post">
+  <%Product product = (Product)session.getAttribute("editProduct");%>
+  <input type="text" name="id" value="<%=product.getId()%>">
+  <input type="text" name="name" value="<%=product.getName()%>">
+  <input type="text" name="brand" value="<%=product.getBrand()%>">
+  <input type="number" name="serialNumber" value="<%=product.getSerialNumber()%>">
+  <input type="number" name="buyPrice" value="<%=product.getBuyPrice()%>">
+</form>
+<button>Edit</button>
+
+<!--<script src="/assets/js/jquery-3.7.1.min.js"></script>-->
+<!--<script src="/assets/js/bootstrap.bundle.min.js"></script>-->
+<!--<script src="/assets/js/all.js"></script>-->
+<!--<script src="/assets/js/product.js"></script>-->
+<script src="/static/assets/js/product.js"></script>
+
+
+</body>
+</html>
