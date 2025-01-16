@@ -39,6 +39,12 @@ public class ProductController {
 //        return "product";
         return "redirect:/product";
     }
+    @DeleteMapping("/id")   //todo
+    public Long productDeleteById(Long id) {
+        productService.deleteById(id);
+        return Long.valueOf("product");
+//        return "redirect:/product";
+    }
     @GetMapping("/brand")
     public String productBrand(Model model){
         try {
